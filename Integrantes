@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equipe do Projeto</title>
+    <link rel="stylesheet" href="css/desktop.css">
+    <link rel="stylesheet" href="css/tablet.css">
+    <link rel="stylesheet" href="css/mobile.css">
+</head>
+<body>
+
+<header>
+    <nav>
+        <div class="logo">ConectaCare</div>
+        <ul>
+            <li><a href="index.html">Início</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="contato.html">Contato</a></li>
+            <li><a href="cuidador.html">Cadastro do Cuidador</a></li>
+            <li><a href="cuidador-menu.html">Menu do Cuidador</a></li>
+
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <h1> Nossa Equipe</h1>
+
+    <section class="integrantes">
+        <article class="card-integrante">
+            <img src="imagens/joao-img.jpg" alt="Foto de João Pedro Scarpin, integrante da equipe">
+            <h2>João Pedro Scarpin</h2>
+            <p>RM: 565421 | Turma: TDSPX</p>
+            <div class="redes">
+                <a href="https://github.com/Scarpin12" target="_blank">GitHub</a> |
+                <a href="https://www.linkedin.com/in/joão-pedro-scarpin-6337ab356/" target="_blank">LinkedIn</a>
+            </div>
+        </article>
+
+        <article class="card-integrante">
+            <img src="imagens/wesley-img.jpg" alt="Foto de Wesley">
+            <h2>Wesley Silva de Andrade</h2>
+            <p>RM: 563593 | Turma: TDSPX</p>
+            <div class="redes">
+                <a href="https://github.com/wesley1812" target="_blank">GitHub</a> |
+                <a href="https://www.linkedin.com/in/wesley-silva-de-andrade/" target="_blank">LinkedIn</a>
+            </div>
+        </article>
+
+        <article class="card-integrante">
+            <img src="imagens/gabriel-img.jpg" alt="Foto de Gabriel">
+            <h2>Gabriel Otávio Wince</h2>
+            <p>RM: 566150 | Turma: TDSPX</p>
+            <div class="redes">
+                <a href="https://github.com/gabriel" target="_blank">GitHub</a> |
+                <a href="https://www.linkedin.com/in/gabriel-wince-47114b286/" target="_blank">LinkedIn</a>
+            </div>
+        </article>
+    </section>
+</main>
+
+<footer>
+    <div class="footer-info">
+        <p>&copy; 2025 ConectaCare. Todos os direitos reservados.</p>
+        <p>Feito com 💙 pela nossa equipe.</p>
+    </div>
+</footer>
+
+</body>
+</html>
