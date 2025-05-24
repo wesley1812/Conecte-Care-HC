@@ -1,0 +1,647 @@
+/* Estilos gerais 
+
+/* Reseta margens, paddings e define box-sizing para todos os elementos, garantindo consistência no layout */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Define variáveis de cores para uso em todo o site, facilitando manutenção e consistência visual */
+:root {
+  --azul-principal: #1E90FF; /* Cor principal para botões e elementos destacados */
+  --azul-claro: #68B2F8; /* Variação clara do azul para hover e fundos */
+  --verde-teal: #008080; /* Cor secundária para interações e hover */
+  --verde-suave: #5ECFA5; /* Tom suave para fundos de seções */
+  --cinza-fundo: #F5F5F5; /* Cor de fundo padrão para o site */
+  --cinza-medio: #E0E0E0; /* Cinza para bordas ou fundos intermediários */
+  --preto-suave: #333; /* Cor de texto principal */
+}
+
+/* Estiliza o corpo da página, definindo fonte, cor de fundo e espaçamento de linha */
+body {
+  font-family: 'Arial', sans-serif; /* Usa Arial como fonte padrão */
+  background-color: var(--cinza-fundo); /* Aplica o cinza claro como fundo */
+  color: var(--preto-suave); /* Define a cor do texto */
+  line-height: 1.6; /* Melhora a legibilidade com espaçamento entre linhas */
+  margin: 0;
+}
+
+/* Estiliza o cabeçalho fixo no topo da página */
+header {
+  background-color: var(--azul-principal);
+  padding: 15px 20px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+/* Estiliza a lista de navegação no header */
+nav ul {
+  display: flex; /* Usa flexbox para alinhar itens */
+  justify-content: center; /* Centraliza os links */
+  list-style: none; /* Remove marcadores de lista */
+  flex-wrap: wrap; /* Permite quebra de linha */
+  text-align: center; /* Centraliza texto */
+  margin: 20px 0; /* Margem vertical */
+  padding: 0; /* Remove padding */
+}
+
+/* Estiliza os itens da lista de navegação */
+nav ul li {
+  margin: 0 15px; /* Espaço horizontal entre itens */
+}
+
+/* Estiliza os links da navegação */
+nav ul li a {
+  color: var(--cinza-fundo); /* Cor do texto */
+  text-decoration: none; /* Remove sublinhado */
+  font-weight: bold; /* Texto em negrito */
+  padding: 8px 12px; /* Espaçamento interno */
+  transition: 0.3s ease-in-out; /* Transição suave para hover */
+}
+
+/* Efeito de hover nos links da navegação */
+nav ul li a:hover {
+  background-color: var(--verde-teal); /* Fundo teal no hover */
+  border-radius: 5px; /* Bordas arredondadas */
+}
+
+
+/* Estiliza o container da seção de depoimentos na página inicial */
+.depoimento-container {
+  display: flex; /* Usa flexbox para alinhar setas e depoimentos */
+  align-items: center; /* Centraliza verticalmente */
+  justify-content: center; /* Centraliza horizontalmente */
+  gap: 30px; /* Espaço entre setas e depoimentos */
+}
+
+/* Estiliza o box que contém os depoimentos */
+.depoimentos-box {
+  display: flex; /* Usa flexbox para organizar depoimentos */
+  flex-wrap: wrap; /* Permite quebra de linha em telas menores */
+  justify-content: center; /* Centraliza os depoimentos */
+  gap: 120px; /* Grande espaçamento entre depoimentos */
+}
+
+/* Estiliza cada depoimento individual */
+.depoimento {
+  position: relative; /* Permite posicionamento absoluto das setas */
+  width: 390px; /* Largura fixa para cada depoimento */
+  height: 250px; /* Altura fixa para formato quadrado */
+  padding: 15px; /* Espaçamento interno */
+  background-color: var(--branco); /* Fundo branco */
+  border-radius: 8px; /* Bordas arredondadas */
+  box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  display: flex; /* Usa flexbox para conteúdo interno */
+  flex-direction: column; /* Organiza texto e autor em coluna */
+  align-items: center; /* Centraliza horizontalmente */
+  justify-content: center; /* Centraliza verticalmente */
+  text-align: center; /* Texto centralizado */
+}
+
+
+/* Segunda definição de variáveis de cores (mantida do CSS original) */
+:root {
+  --cinza-fundo: #f5f5f5; /* Fundo cinza claro */
+  --azul-principal: #0077b6; /* Azul principal alternativo */
+  --verde-teal: #009688; /* Teal alternativo */
+  --verde-suave: #e0f2e9; /* Verde suave para fundos */
+  --azul-claro: #00b4d8; /* Azul claro para hover */
+  --branco: #ffffff; /* Branco puro */
+  --preto-suave: #333333; /* Preto suave para texto */
+}
+
+
+/* Estiliza a seção hero na página inicial */
+.hero {
+  background: linear-gradient(to right, var(--azul-principal), var(--verde-suave)); /* Gradiente de fundo */
+  color: var(--verde-suave); /* Cor do texto */
+  padding: 110px 20px; /* Espaçamento interno */
+  text-align: center; /* Texto centralizado */
+}
+
+/* Estiliza o título da seção hero */
+.hero h1 {
+  font-size: 2.8rem; /* Tamanho grande para destaque */
+  margin-bottom: 15px; /* Espaço abaixo */
+}
+
+/* Estiliza o parágrafo da seção hero */
+.hero p {
+  font-size: 1.2rem; /* Tamanho do texto */
+  margin-bottom: 20px; /* Espaço abaixo */
+}
+
+/* Estiliza a seção de benefícios */
+.beneficios {
+  padding: 60px 20px; /* Espaçamento interno */
+  text-align: center; /* Texto centralizado */
+}
+
+/* Estiliza o título da seção de benefícios */
+.beneficios h2 {
+  font-size: 2rem; /* Tamanho do título */
+  color: var(--azul-principal); /* Cor azul */
+}
+
+/* Estiliza o container dos cards de benefícios */
+.cards {
+  display: flex; /* Usa flexbox para alinhar cards */
+  justify-content: center; /* Centraliza os cards */
+  gap: 20px; /* Espaço entre cards */
+  margin-top: 30px; /* Espaço acima */
+  flex-wrap: wrap; /* Permite quebra de linha */
+}
+
+/* Estiliza cada card de benefício */
+.card {
+  background-color: var(--branco); /* Fundo branco */
+  padding: 20px; /* Espaçamento interno */
+  border-radius: 8px; /* Bordas arredondadas */
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  text-align: center; /* Texto centralizado */
+  width: 250px; /* Largura fixa */
+  transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out; /* Transições para hover */
+}
+
+/* Efeito de hover nos cards */
+.card:hover {
+  transform: scale(1.1); /* Aumenta o tamanho */
+  background-color: var(--azul-claro); /* Fundo azul claro */
+  box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.15); /* Sombra mais forte */
+}
+
+/* Estiliza as imagens dentro dos cards */
+.card img {
+  width: 60px; /* Tamanho da imagem */
+  margin-bottom: 15px; /* Espaço abaixo */
+}
+
+/* Estiliza a seção de integrantes (página "Quem Somos") */
+.integrantes {
+  display: flex; /* Usa flexbox para alinhar cards */
+  justify-content: center; /* Centraliza os cards */
+  gap: 20px; /* Espaço entre cards */
+  flex-wrap: wrap; /* Permite quebra de linha */
+  text-align: center; /* Texto centralizado */
+  margin: 20px 0; /* Margem vertical */
+}
+
+/* Estiliza as imagens dos integrantes */
+.integrantes img {
+  width: 150px; /* Largura da imagem */
+  height: auto; /* Altura proporcional */
+  border-radius: 10px; /* Bordas arredondadas */
+}
+
+/* Estiliza a seção de depoimentos */
+.depoimentos {
+  background-color: var(--verde-suave); /* Fundo verde suave */
+  padding: 50px 20px; /* Espaçamento interno */
+  text-align: center; /* Texto centralizado */
+}
+
+/* Estiliza o texto dos depoimentos */
+.depoimento {
+  font-size: 1.2rem; /* Tamanho do texto */
+  color: var(--preto-suave); /* Cor do texto */
+  font-style: italic; /* Texto em itálico */
+}
+
+/* Estiliza a seção de FAQ */
+.faq {
+  max-width: 800px; /* Largura máxima */
+  margin: 20px auto; /* Centraliza com margem */
+  padding: 20px; /* Espaçamento interno */
+  background-color: var(--cinza-fundo); /* Fundo cinza */
+  border-radius: 8px; /* Bordas arredondadas */
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+/* Estiliza cada item do FAQ */
+.faq-item {
+  margin-bottom: 15px; /* Espaço abaixo */
+  background-color: var(--branco); /* Fundo branco */
+  padding: 15px; /* Espaçamento interno */
+  border-radius: 8px; /* Bordas arredondadas */
+  box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  transition: transform 0.3s ease-in-out; /* Transição para hover */
+}
+
+/* Efeito de hover nos itens do FAQ */
+.faq-item:hover {
+  transform: scale(1.03); /* Leve aumento de tamanho */
+}
+
+/* Estiliza a pergunta do FAQ */
+.faq-question {
+  cursor: pointer; /* Cursor de clique */
+  font-size: 1.2rem; /* Tamanho do texto */
+  display: flex; /* Usa flexbox para alinhar */
+  justify-content: space-between; /* Espaço entre pergunta e seta */
+  align-items: center; /* Centraliza verticalmente */
+}
+
+/* Estiliza a resposta do FAQ */
+.faq-answer {
+  display: none; /* Esconde por padrão */
+  font-size: 1rem; /* Tamanho do texto */
+  margin-top: 10px; /* Espaço acima */
+  padding: 10px; /* Espaçamento interno */
+  background-color: var(--cinza-fundo); /* Fundo cinza */
+  border-radius: 5px; /* Bordas arredondadas */
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  transition: all 0.3s ease-in-out; /* Transição suave */
+}
+
+/* Exibe a resposta quando ativa */
+.faq-answer.ativo {
+  display: block; /* Mostra a resposta */
+}
+
+/* Estiliza a seta do FAQ */
+.seta {
+  font-size: 18px; /* Tamanho da seta */
+  transition: transform 0.4s ease-in-out; /* Transição para rotação */
+}
+
+/* Estiliza grupos de formulário */
+.form-group {
+  margin-bottom: 15px; /* Espaço abaixo */
+  display: flex; /* Usa flexbox */
+  flex-direction: column; /* Organiza em coluna */
+}
+
+/* Estiliza botões genéricos */
+button {
+  background-color: var(--azul-principal); /* Fundo azul */
+  color: var(--branco); /* Texto branco */
+  padding: 12px 20px; /* Espaçamento interno */
+  border-radius: 5px; /* Bordas arredondadas */
+  font-weight: bold; /* Texto em negrito */
+  cursor: pointer; /* Cursor de clique */
+  transition: 0.3s; /* Transição suave */
+  border: none; /* Remove borda */
+}
+
+/* Efeito de hover nos botões */
+button:hover {
+  background-color: var(--verde-teal); /* Fundo teal no hover */
+}
+
+/* Estiliza a seção de informações de contato */
+.contato-info {
+  max-width: 600px; /* Largura máxima */
+  margin: 20px auto; /* Centraliza */
+  padding: 20px; /* Espaçamento interno */
+  background-color: var(--cinza-fundo); /* Fundo cinza */
+  border-radius: 8px; /* Bordas arredondadas */
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+/* Estiliza cada item de contato */
+.contato-item {
+  margin-bottom: 20px; /* Espaço abaixo */
+  text-align: center; /* Texto centralizado */
+}
+
+/* Estiliza o título dos itens de contato */
+.contato-item h2 {
+  color: var(--azul-principal); /* Cor azul */
+  margin-bottom: 10px; /* Espaço abaixo */
+}
+
+/* Estiliza o botão de WhatsApp */
+.whatsapp-btn {
+  background-color: var(--verde-teal); /* Fundo teal */
+  color: var(--branco); /* Texto branco */
+  padding: 12px 20px; /* Espaçamento interno */
+  border-radius: 5px; /* Bordas arredondadas */
+  font-weight: bold; /* Texto em negrito */
+  cursor: pointer; /* Cursor de clique */
+  transition: 0.3s ease-in-out; /* Transição suave */
+  border: none; /* Remove borda */
+}
+
+/* Efeito de hover no botão de WhatsApp */
+.whatsapp-btn:hover {
+  background-color: var(--azul-claro); /* Fundo azul claro no hover */
+}
+
+/* Estiliza inputs e selects */
+input, select {
+  width: 100%; /* Largura total */
+  padding: 10px; /* Espaçamento interno */
+  border: 1px solid #ccc; /* Borda cinza */
+  border-radius: 5px; /* Bordas arredondadas */
+}
+
+/* Remove borda padrão de inputs de arquivo */
+input[type="file"] {
+  border: none; /* Sem borda */
+}
+
+/* Estiliza a seção de consultas no menu do cuidador */
+.consultas {
+  max-width: 800px; /* Largura máxima */
+  margin: 20px 300PX; /* Centraliza */
+  padding: 20px; /* Espaçamento interno */
+  background-color: var(--cinza-fundo); /* Fundo cinza */
+  border-radius: 8px; /* Bordas arredondadas */
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+/* Estiliza cada consulta */
+.consulta {
+  background-color: var(--branco); /* Fundo branco */
+  padding: 15px; /* Espaçamento interno */
+  border-radius: 8px; /* Bordas arredondadas */
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  margin-bottom: 20px; /* Espaço abaixo */
+  text-align: center; /* Texto centralizado */
+  transition: transform 0.3s ease-in-out; /* Transição para hover */
+}
+
+/* Efeito de hover nas consultas */
+.consulta:hover {
+  transform: scale(1.05); /* Aumenta o tamanho */
+}
+
+/* Estiliza o botão de contato com o médico */
+.contato-medico {
+  background-color: var(--azul-principal); /* Fundo azul */
+  color: var(--branco); /* Texto branco */
+  padding: 10px 15px; /* Espaçamento interno */
+  border-radius: 5px; /* Bordas arredondadas */
+  font-weight: bold; /* Texto em negrito */
+  cursor: pointer; /* Cursor de clique */
+  transition: 0.3s ease-in-out; /* Transição suave */
+  border: none; /* Remove borda */
+}
+
+/* Efeito de hover no botão de contato com o médico */
+.contato-medico:hover {
+  background-color: var(--verde-teal); /* Fundo teal no hover */
+}
+
+
+
+/* Estiliza a seção de monitoramento no menu do cuidador */
+.monitoramento {
+  background-color: var(--branco); /* Fundo branco */
+  padding: 20px; /* Espaçamento interno */
+  border-radius: 8px; /* Bordas arredondadas */
+  boxophage-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  margin: 20px auto; /* Centraliza com margem */
+  width: 90%; /* Largura relativa */
+  display: flex; /* Usa flexbox */
+  flex-direction: column; /* Organiza em coluna */
+  gap: 20px; /* Espaço entre elementos */
+}
+
+/* Estiliza o título da seção de monitoramento */
+.monitoramento h1 {
+  font-size: 24px; /* Tamanho da fonte */
+  font-weight: bold; /* Texto em negrito */
+  color: #333; /* Cor do texto */
+  text-align: center; /* Texto centralizado */
+}
+
+/* Estiliza o container de gráficos de monitoramento */
+.graficos-monitoramento {
+  display: flex; /* Usa flexbox */
+  justify-content: center; /* Centraliza */
+  gap: 20px; /* Espaço entre gráficos */
+  flex-wrap: wrap; /* Permite quebra de linha */
+}
+
+/* Estiliza cada gráfico de monitoramento */
+.grafico {
+  width: 120px; /* Largura fixa */
+  height: 200px; /* Altura fixa */
+  background-color: #ddd; /* Fundo cinza */
+  border-radius: 5px; /* Bordas arredondadas */
+  display: flex; /* Usa flexbox */
+  align-items: flex-end; /* Alinha ao fundo */
+  justify-content: center; /* Centraliza */
+  text-align: center; /* Texto centralizado */
+  font-weight: bold; /* Texto em negrito */
+}
+
+/* Estiliza as barras dos gráficos */
+.barra {
+  width: 100%; /* Largura total */
+  color: white; /* Texto branco */
+  padding: 5px; /* Espaçamento interno */
+  text-align: center; /* Texto centralizado */
+  border-radius: 6px; /* Bordas arredondadas */
+}
+
+/* Estiliza a seção de evolução da saúde */
+.evolucao-saude {
+  display: flex; /* Usa flexbox */
+  flex-direction: column; /* Organiza em coluna */
+  align-items: center; /* Centraliza */
+  padding: 30px; /* Espaçamento interno */
+  background-color: var(--cinza-fundo); /* Fundo cinza */
+  border-radius: 12px; /* Bordas arredondadas */
+  box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.15); /* Sombra mais forte */
+  margin: 20px auto; /* Centraliza */
+  width: 90%; /* Largura relativa */
+  min-height: 200px; /* Altura mínima */
+}
+
+/* Estiliza o título da seção de evolução da saúde */
+.evolucao-saude h1 {
+  font-size: 28px; /* Tamanho da fonte */
+  font-weight: bold; /* Texto em negrito */
+  color: #333; /* Cor do texto */
+  text-align: center; /* Texto centralizado */
+  margin-bottom: 20px; /* Espaço abaixo */
+}
+
+/* Estiliza o container de indicadores de saúde */
+.indicadores-container {
+  display: flex; /* Usa flexbox */
+  justify-content: center; /* Centraliza */
+  gap: 30px; /* Espaço entre indicadores */
+  flex-wrap: wrap; /* Permite quebra de linha */
+}
+
+/* Estiliza cada indicador de saúde */
+.indicador {
+  width: 280px; /* Largura fixa */
+  padding: 20px; /* Espaçamento interno */
+  background-color: var(--branco); /* Fundo branco */
+  border-radius: 12px; /* Bordas arredondadas */
+  text-align: center; /* Texto centralizado */
+  font-weight: bold; /* Texto em negrito */
+  box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.15); /* Sombra forte */
+  transition: transform 0.3s ease-in-out; /* Transição para hover */
+}
+
+/* Efeito de hover nos indicadores */
+.indicador:hover {
+  transform: scale(1.05); /* Aumenta o tamanho */
+}
+
+/* Estiliza o container de gráficos nos indicadores */
+.grafico-container {
+  width: 100%; /* Largura total */
+  height: 100px; /* Altura fixa */
+  background-color: #ddd; /* Fundo cinza */
+  border-radius: 8px; /* Bordas arredondadas */
+  display: flex; /* Usa flexbox */
+  align-items: flex-end; /* Alinha ao fundo */
+  justify-content: center; /* Centraliza */
+  text-align: center; /* Texto centralizado */
+  font-weight: bold; /* Texto em negrito */
+  box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+/* Estiliza a seção de alertas e notificações */
+.alertas-notificacoes {
+  margin-top: 20px; /* Espaço acima */
+  text-align: center; /* Texto centralizado */
+}
+
+/* Estiliza a lista de alertas */
+.alertas-notificacoes ul {
+  list-style: none; /* Remove marcadores */
+  padding: 0; /* Remove padding */
+}
+
+/* Estiliza cada item de alerta */
+.alertas-notificacoes li {
+  background-color: #ffeb3b; /* Fundo amarelo */
+  padding: 10px; /* Espaçamento interno */
+  border-radius: 5px; /* Bordas arredondadas */
+  margin-bottom: 8px; /* Espaço abaixo */
+  font-weight: bold; /* Texto em negrito */
+}
+
+/* Estiliza o rodapé */
+footer {
+  background-color: var(--verde-teal); /* Fundo teal */
+  color: var(--cinza-fundo); /* Texto cinza */
+  padding: 20px; /* Espaçamento interno */
+  text-align: center; /* Texto centralizado */
+  box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1); /* Sombra no topo */
+}
+
+/* Estiliza as seções de paciente e feedback */
+.paciente, .feedback {
+  max-width: 800px; /* Largura máxima */
+  margin: 20px auto; /* Centraliza */
+  padding: 20px; /* Espaçamento interno */
+  background-color: var(--cinza-fundo); /* Fundo cinza */
+  border-radius: 8px; /* Bordas arredondadas */
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+/* Estiliza parágrafos na seção de paciente e relatórios na seção de feedback */
+.paciente p, .feedback .relatorio {
+  background-color: var(--branco); /* Fundo branco */
+  padding: 15px; /* Espaçamento interno */
+  border-radius: 8px; /* Bordas arredondadas */
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  margin-bottom: 20px; /* Espaço abaixo */
+  text-align: center; /* Texto centralizado */
+}
+
+/* Efeito de hover nos relatórios */
+.relatorio:hover {
+  transform: scale(1.05); /* Aumenta o tamanho */
+}
+
+/* Estiliza o container do termo de compromisso */
+.termo-container {
+  max-width: 800px; /* Largura máxima */
+  margin: 20px auto; /* Centraliza */
+  padding: 15px; /* Espaçamento interno */
+  background-color: var(--cinza-fundo); /* Fundo cinza */
+  border-radius: 8px; /* Bordas arredondadas */
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  display: none; /* Escondido por padrão */
+}
+
+/* Estiliza o botão de mostrar termo */
+button#mostrarTermo {
+  background-color: var(--azul-principal); /* Fundo azul */
+  color: var(--branco); /* Texto branco */
+  padding: 10px; /* Espaçamento interno */
+  border: none; /* Remove borda */
+  border-radius: 5px; /* Bordas arredondadas */
+  cursor: pointer; /* Cursor de clique */
+}
+
+/* Efeito de hover no botão de mostrar termo */
+button#mostrarTermo:hover {
+  background-color: var(--verde-teal); /* Fundo teal no hover */
+}
+
+/* Estiliza o checkbox de aceitar termo */
+#aceitarTermo {
+  margin-top: 10px; /* Espaço acima */
+}
+
+/* Estiliza a seção de integrantes (mantido para consistência) */
+.integrantes {
+  display: flex; /* Usa flexbox */
+  justify-content: center; /* Centraliza */
+  gap: 20px; /* Espaço entre cards */
+  flex-wrap: wrap; /* Permite quebra de linha */
+  text-align: center; /* Texto centralizado */
+}
+
+/* Estiliza cada card de integrante */
+.card-integrante {
+  background-color: var(--branco); /* Fundo branco */
+  padding: 20px; /* Espaçamento interno */
+  border-radius: 8px; /* Bordas arredondadas */
+  box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  transition: transform 0.3s ease-in-out; /* Transição para hover */
+  width: 250px; /* Largura fixa */
+  text-align: center; /* Texto centralizado */
+}
+
+/* Estiliza a imagem dos integrantes */
+.card-integrante img {
+  width: 110px; /* Largura da imagem */
+  border-radius: 50%; /* Imagem circular */
+  margin-bottom: 10px; /* Espaço abaixo */
+  transition: transform 0.3s; /* Transição para hover */
+}
+
+/* Efeito de hover no card de integrante */
+.card-integrante:hover {
+  transform: scale(1.05); /* Aumenta o tamanho */
+}
+
+/* Efeito de hover na imagem do integrante */
+.card-integrante:hover img {
+  transform: rotate(5deg); /* Rotaciona levemente */
+}
+
+/* Estiliza os links de redes sociais dos integrantes */
+.redes a {
+  color: var(--azul-principal); /* Cor azul */
+  font-weight: bold; /* Texto em negrito */
+  text-decoration: none; /* Remove sublinhado */
+  transition: color 0.3s ease-in-out; /* Transição para hover */
+}
+
+/* Efeito de hover nos links de redes sociais */
+.redes a:hover {
+  color: var(--verde-teal); /* Cor teal no hover */
+}
+
+/* Estilos específicos para computadores (992px e acima) */
+@media (min-width: 992px) {
+  /* Ajusta o padding do conteúdo principal */
+  main {
+    padding: 80px 40px; /* Espaçamento interno maior */
+  }
+}
