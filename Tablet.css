@@ -1,0 +1,10 @@
+/* Estilos para tablets */
+
+/* Telas entre 600px e 992px */
+@media (min-width: 600px) and (max-width: 992px) {
+  main {
+    padding-top: 90px; /* Ajuste intermediário para tablets */
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
