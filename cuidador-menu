@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu do Cuidador</title>
+    <link rel="stylesheet" href="css/desktop.css">
+    <link rel="stylesheet" href="css/tablet.css">
+    <link rel="stylesheet" href="css/mobile.css">
+</head>
+<body>
+<header>
+    <nav>
+        <div class="logo">ConectaCare</div>
+        <button class="menu-toggle">☰</button>
+        <ul>
+            <li><a href="index.html">Início</a></li>
+            <li><a href="integrantes.html">Quem Somos</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="contato.html">Contato</a></li>
+            <li><a href="cuidador-menu.html">Menu do Cuidador</a></li>
+        </ul>
+        </nav>
+    </header>
+    <br>
+    <br>
+        <main>
+   <section class="paciente">
+            <h2> Informações do Paciente</h2>
+            <p><strong>Nome:</strong> João da Silva</p>
+            <p><strong>Idade:</strong> 75 anos</p>
+            <p><strong>Histórico Médico:</strong> Hipertensão e diabetes controlada.</p>
+        </section>
+            
+        </section>
+            <section class="evolucao-saude">
+                <h2> Evolução da Saúde</h2>
+                <div class="indicadores-container">
+                    <div class="indicador">
+                        <h3>Pressão Arterial</h3>
+                        <div class="grafico-container">
+                            <div class="barra" style="height: 80%; background-color: #2e7d32;">120/80 mmHg</div>
+                        </div>
+                    </div>
+                    <div class="indicador">
+                        <h3>Glicemia</h3>
+                        <div class="grafico-container">
+                            <div class="barra" style="height: 60%; background-color: #f9a825;">140 mg/dL</div>
+                        </div>
+                    </div>
+                    <div class="indicador">
+                        <h3>Hidratação</h3>
+                        <div class="grafico-container">
+                            <div class="barra" style="height: 40%; background-color: #c62828;">Baixa ingestão</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        <section class="consultas">
+            <h2> Próximas Consultas</h2>
+            <div class="consulta">
+                <h3>Consulta de fisioterapia</h3>
+                <p><strong>Data:</strong> 20/06/2025</p>
+                <p><strong>Horário:</strong> 14h00</p>
+                <button class="contato-medico">Tirar dulvidas sobre a consulta</button>
+            </div>
+            <div class="consulta">
+                <h3>Consulta de pisicologia </h3>
+                <p><strong>Data:</strong> 25/05/2025</p>
+                <p><strong>Horário:</strong> 10h30</p>
+                <button class="contato-medico">Tirar dulvidas sobre a consulta</button>
+            </div>
+        </section>
+
+        
+    </main>
+
+    <footer>
+        <div class="footer-info">
+            <p>&copy; 2025 ConectaCare. Todos os direitos reservados.</p>
+            <p>Feito com 💙 pela nossa equipe.</p>
+        </div>
+    </footer>
+
+    <script src="js/cuidador-menu.js"></script>
+</body>
+</html>
