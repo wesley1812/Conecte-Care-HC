@@ -1,0 +1,408 @@
+/* Função: Esconde o botão do menu hamburguer por padrão em telas maiores que 768px */
+header nav .menu-toggle {
+  display: none;
+}
+
+/* Função: Define estilos para dispositivos móveis (telas até 768px) */
+@media (max-width: 768px) {
+  /* Função: Ajusta o cabeçalho com padding reduzido, altura fixa e alinhamento flexível */
+  header {
+    padding: 8px 12px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    background-color: var(--azul-principal);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    height: 40px; /* Altura fixa */
+    display: flex;
+    align-items: center;
+  }
+
+  /* Função: Organiza o nav com layout flexível para alinhar logo e botão do menu */
+  header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  /* Função: Estiliza o logotipo com tamanho de fonte reduzido e cor clara */
+  header .logo {
+    font-size: 1.2rem;
+    color: var(--cinza-fundo);
+    font-weight: bold;
+  }
+
+  /* Função: Exibe e estiliza o botão do menu hamburguer para dispositivos móveis */
+  header nav .menu-toggle {
+    display: block; /* Visível apenas em mobile */
+    background: none;
+    border: none;
+    color: var(--cinza-fundo);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0 10px;
+  }
+
+  /* Função: Esconde o menu de navegação por padrão em dispositivos móveis */
+  header nav ul {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 40px; /* Abaixo do header */
+    left: 0;
+    width: 100%;
+    background-color: var(--azul-principal);
+    padding: 10px 0;
+    margin: 0;
+    list-style: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+  }
+
+  /* Função: Exibe o menu de navegação quando a classe active é aplicada */
+  header nav ul.active {
+    display: flex;
+  }
+
+  /* Função: Ajusta os itens do menu com margem reduzida e texto centralizado */
+  header nav ul li {
+    margin: 5px 0;
+    text-align: center;
+  }
+
+  /* Função: Estiliza os links do menu com padding reduzido, fonte menor e transição */
+  header nav ul li a {
+    padding: 8px 12px;
+    font-size: 0.9rem;
+    color: var(--cinza-fundo);
+    text-decoration: none;
+    font-weight: bold;
+    display: block;
+    transition: background-color 0.3s ease-in-out;
+  }
+
+  /* Função: Aplica fundo teal e bordas arredondadas nos links ao passar o mouse */
+  header nav ul li a:hover {
+    background-color: var(--verde-teal);
+    border-radius: 5px;
+  }
+
+  /* Função: Ajusta o contêiner principal com padding reduzido e margem menor */
+  main {
+    padding: 45px 15px 20px; /* Ajustado para header menor */
+    margin: 10px auto;
+    max-width: 100%;
+  }
+
+  /* Função: Reduz o padding e largura máxima da seção de informações do paciente */
+  .paciente {
+    padding: 15px;
+    margin: 0 auto 20px;
+    max-width: 90%;
+  }
+
+  /* Função: Reduz o tamanho do título da seção paciente */
+  .paciente h2 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+  }
+
+  /* Função: Ajusta os parágrafos da seção paciente com largura total e fonte menor */
+  .paciente p {
+    max-width: 100%;
+    margin: 8px auto;
+    padding: 10px 15px;
+    font-size: 1rem;
+  }
+
+  /* Função: Reduz o padding e largura máxima da seção de monitoramento */
+  .monitoramento {
+    padding: 15px;
+    margin: 0 auto 20px;
+    max-width: 90%;
+  }
+
+  /* Função: Reduz o tamanho do título da seção monitoramento */
+  .monitoramento h2 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+  }
+
+  /* Função: Reduz o padding, largura máxima e altura mínima da seção de evolução da saúde */
+  .evolucao-saude {
+    padding: 15px;
+    margin: 0 auto 20px;
+    max-width: 90%;
+    min-height: 200px;
+  }
+
+  /* Função: Reduz o tamanho do título da seção evolução da saúde */
+  .evolucao-saude h2 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+  }
+
+  /* Função: Organiza os indicadores em coluna para melhor visualização em mobile */
+  .indicadores-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
+  /* Função: Ajusta a largura dos indicadores para ocupar o espaço disponível */
+  .indicador {
+    width: 100%;
+    max-width: 300px;
+    padding: 15px;
+    margin: 8px auto;
+  }
+
+  /* Função: Reduz o tamanho do título dos indicadores */
+  .indicador h3 {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+  }
+
+  /* Função: Reduz a altura do contêiner de gráficos */
+  .grafico-container {
+    height: 80px;
+  }
+
+  /* Função: Reduz o padding e largura máxima da seção de consultas */
+  .consultas {
+    padding: 15px;
+    margin: 0 auto 20px;
+    max-width: 90%;
+  }
+
+  /* Função: Reduz o tamanho do título da seção consultas */
+  .consultas h2 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+  }
+
+  /* Função: Ajusta a largura e padding de cada consulta */
+  .consulta {
+    max-width: 100%;
+    padding: 10px;
+    margin: 8px auto;
+  }
+
+  /* Função: Reduz o tamanho do título de cada consulta */
+  .consulta h3 {
+    font-size: 1.3rem;
+    margin-bottom: 8px;
+  }
+
+  /* Função: Reduz o tamanho dos parágrafos das consultas */
+  .consulta p {
+    font-size: 1rem;
+    margin: 5px 0;
+  }
+
+  /* Função: Ajusta o padding e fonte dos botões de contato com o médico */
+  .contato-medico {
+    padding: 10px 15px;
+    font-size: 0.9rem;
+    transform: scale(1);
+    animation: pulse 2s infinite ease-in-out;
+  }
+
+  /* Função: Aplica escala e remove animação no botão de contato ao passar o mouse */
+  .contato-medico:hover {
+    transform: scale(1.03);
+    animation: none;
+  }
+
+  /* Função: Define a animação de pulsação para botões, com escala e sombra */
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+      box-shadow: 0 0 0 0 rgba(0, 119, 182, 0.7);
+    }
+    50% {
+      transform: scale(1.03);
+      box-shadow: 0 0 8px 4px rgba(0, 0, 0, 0.3);
+    }
+    100% {
+      transform: scale(1);
+      box-shadow: 0 0 0 0 rgba(0, 119, 182, 0.7);
+    }
+  }
+}
+
+/* Função: Define estilos para celulares pequenos (telas até 600px) */
+@media (max-width: 600px) {
+  /* Função: Ajusta o cabeçalho com padding e altura ainda menores */
+  header {
+    padding: 6px 10px;
+    height: 35px; /* Altura ainda menor */
+  }
+
+  /* Função: Mantém o nav com layout flexível para alinhar logo e botão */
+  header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  /* Função: Reduz o tamanho do logotipo */
+  header .logo {
+    font-size: 1.1rem;
+  }
+
+  /* Função: Ajusta o tamanho e padding do botão do menu hamburguer */
+  header nav .menu-toggle {
+    display: block;
+    font-size: 1.3rem;
+    padding: 0 8px;
+  }
+
+  /* Função: Posiciona o menu hamburguer abaixo do header menor */
+  header nav ul {
+    top: 35px; /* Abaixo do header menor */
+  }
+
+  /* Função: Reduz o padding e fonte dos links do menu */
+  header nav ul li a {
+    padding: 6px 10px;
+    font-size: 0.85rem;
+  }
+
+  /* Função: Ajusta o contêiner principal com padding e margem ainda menores */
+  main {
+    padding: 40px 10px 20px; /* Ajustado para header menor */
+    margin: 5px auto;
+  }
+
+  /* Função: Reduz o tamanho do título da seção paciente */
+  .paciente h2 {
+    font-size: 1.6rem;
+  }
+
+  /* Função: Reduz o tamanho e padding dos parágrafos da seção paciente */
+  .paciente p {
+    font-size: 0.9rem;
+    padding: 8px 10px;
+  }
+
+  /* Função: Reduz o tamanho do título da seção monitoramento */
+  .monitoramento h2 {
+    font-size: 1.6rem;
+  }
+
+  /* Função: Reduz o tamanho do título da seção evolução da saúde */
+  .evolucao-saude h2 {
+    font-size: 1.6rem;
+  }
+
+  /* Função: Reduz o padding dos indicadores */
+  .indicador {
+    padding: 10px;
+  }
+
+  /* Função: Reduz o tamanho do título dos indicadores */
+  .indicador h3 {
+    font-size: 1.1rem;
+  }
+
+  /* Função: Reduz a altura do contêiner de gráficos */
+  .grafico-container {
+    height: 60px;
+  }
+
+  /* Função: Reduz o tamanho do título da seção consultas */
+  .consultas h2 {
+    font-size: 1.6rem;
+  }
+
+  /* Função: Reduz o tamanho do título de cada consulta */
+  .consulta h3 {
+    font-size: 1.2rem;
+  }
+
+  /* Função: Reduz o tamanho dos parágrafos das consultas */
+  .consulta p {
+    font-size: 0.9rem;
+  }
+
+  /* Função: Reduz o padding e fonte dos botões de contato com o médico */
+  .contato-medico {
+    padding: 8px 12px;
+    font-size: 0.8rem;
+  }
+}
+
+/* Função: Define estilos de responsividade para o modal do termo de compromisso em dispositivos móveis (telas até 768px) */
+@media (max-width: 768px) {
+  /* Função: Ajusta a largura e padding do conteúdo do modal */
+  .modal-content {
+    max-width: 90%;
+    padding: 15px;
+  }
+
+  /* Função: Reduz o tamanho do título do modal */
+  .modal-content h2 {
+    font-size: 1.6rem;
+  }
+
+  /* Função: Reduz o tamanho do texto e itens da lista do modal */
+  .modal-content p,
+  .modal-content ul li {
+    font-size: 0.9rem;
+  }
+
+  /* Função: Ajusta o padding e fonte dos botões genéricos */
+  .btn {
+    padding: 8px 12px;
+    font-size: 0.85rem;
+    margin: 10px 0 8px;
+  }
+
+  /* Função: Reduz a margem inferior do botão de abrir o modal */
+  .btn#openTermoModal {
+    margin-bottom: 8px;
+  }
+}
+
+/* Função: Define estilos de responsividade para o modal do termo de compromisso em celulares pequenos (telas até 600px) */
+@media (max-width: 600px) {
+  /* Função: Ajusta a largura e padding do conteúdo do modal para telas menores */
+  .modal-content {
+    width: 95%;
+    padding: 10px;
+  }
+
+  /* Função: Reduz ainda mais o tamanho do título do modal */
+  .modal-content h2 {
+    font-size: 1.4rem;
+  }
+
+  /* Função: Reduz ainda mais o tamanho do texto e itens da lista do modal */
+  .modal-content p,
+  .modal-content ul li {
+    font-size: 0.85rem;
+  }
+
+  /* Função: Reduz o padding, fonte e margens dos botões genéricos */
+  .btn {
+    padding: 6px 10px;
+    font-size: 0.8rem;
+    margin: 8px 0 6px;
+  }
+
+  /* Função: Reduz a margem inferior do botão de abrir o modal */
+  .btn#openTermoModal {
+    margin-bottom: 6px;
+  }
+
+  /* Função: Ajusta o tamanho e posicionamento do botão de fechar o modal */
+  .close-modal {
+    font-size: 1.3rem;
+    top: 5px;
+    right: 10px;
+  }
+}
