@@ -1,79 +1,93 @@
+/* Inicializa o script após o carregamento do DOM */
 document.addEventListener("DOMContentLoaded", () => {
-    // 🎯 Efeito de rolagem no menu
-    const menu = document.querySelector("nav ul");
-    // depoimentos
-    document.addEventListener("DOMContentLoaded", () => {
-  /* Define os grupos de depoimentos exibidos na seção de depoimentos da página inicial */
-  const depoimentosBox = document.querySelector(".depoimentos-box");
-  const setaEsquerda = document.querySelector(".seta-esquerda");
-  const setaDireita = document.querySelector(".seta-direita");
+    
+    //  Menu hamburguer para dispositivos móveis
+    const menuToggle = document.querySelector("header nav .menu-toggle");
+    const navMenu = document.querySelector("header nav ul");
+    if (menuToggle && navMenu) {
+        console.log("Menu hamburguer inicializado em: " + window.location.pathname);
+        menuToggle.addEventListener("click", () => {
+            console.log("Botão menu-toggle clicado, estado atual:", navMenu.classList.contains("active"));
+            navMenu.classList.toggle("active");
+            menuToggle.textContent = navMenu.classList.contains("active") ? "✕" : "☰";
+            console.log("Menu:", navMenu.classList.contains("active") ? "exibido" : "escondido");
+        });
+    } else {
+        console.error("Erro: .menu-toggle ou nav ul não encontrados em: " + window.location.pathname, {
+            menuToggle: !!menuToggle,
+            navMenu: !!navMenu
+        });
+    }
 
-  const gruposDeDepoimentos = [
-    [
-      { texto: "A plataforma ajudou a garantir que meu avô nunca perdesse uma consulta médica.", autor: "- Renato Carvalho, Cuidador" },
-      { texto: "Antes, os pacientes chegavam sem histórico detalhado. Agora, recebo relatórios completos!", autor: "- Dra. Mariana Torres, Geriatra" },
-      { texto: "Com o suporte ao cuidador, ficou mais fácil acompanhar consultas de pacientes idosos.", autor: "- Enfermeira Ana Souza" }
-    ],
-    [
-      { texto: "Agora posso acompanhar remotamente as consultas do meu pai enquanto estou viajando.", autor: "- André Souza, Familiar" },
-      { texto: "Os pacientes ficam mais seguros sabendo que terão lembretes e suporte no atendimento.", autor: "- Dr. Carlos Mendes, Cardiologista" },
-      { texto: "Nunca mais perdi uma consulta médica graças às notificações automáticas do aplicativo!", autor: "- Carlos Mendes, Paciente" }
-    ],
-    [
-      { texto: "O sistema permite que cuidadores organizem informações médicas de forma eficiente.", autor: "- Enfermeira Paula Martins" },
-      { texto: "Recomendo a plataforma para todos os idosos que precisam de suporte em suas consultas.", autor: "- Dra. Juliana Lima, Geriatra" },
-      { texto: "Facilitou muito a comunicação entre médicos, pacientes e familiares!", autor: "- Pedro Oliveira, Cuidador" }
-    ],
-    /* Novo grupo de depoimentos */
-    [
-      { texto: "A plataforma simplificou o agendamento de consultas para minha mãe idosa.", autor: "- Fernanda Lima, Filha" },
-      { texto: "Os lembretes automáticos garantem que meus pacientes sigam o tratamento corretamente.", autor: "- Dr. Roberto Almeida, Clínico Geral" },
-      { texto: "O acompanhamento detalhado melhorou a qualidade de vida do meu avô.", autor: "- Lucas Pereira, Neto" }
-    ],
-    /* Novo grupo de depoimentos */
-    [
-      { texto: "Organizar os relatórios médicos nunca foi tão fácil!", autor: "- Maria Costa, Cuidadora" },
-      { texto: "A plataforma é intuitiva e ajuda a monitorar a saúde dos pacientes em tempo real.", autor: "- Dra. Camila Ferreira, Endócrino" },
-      { texto: "Graças ao sistema, consigo planejar melhor as consultas da minha família.", autor: "- João Santos, Familiar" }
-    ]
-  ];
+        //  Funcionalidade do FAQ
+    const perguntas = document.querySelectorAll(".faq-question");
+    if (perguntas.length > 0) {
+        try {
+            perguntas.forEach(pergunta => {
+                pergunta.addEventListener("click", () => {
+                    const resposta = pergunta.nextElementSibling;
+                    const seta = pergunta.querySelector(".seta");
 
-  let indiceAtual = 0;
+                    if (!resposta || !seta) {
+                        console.error("Resposta ou seta não encontrados para a pergunta:", pergunta);
+                        return;
+                    }
 
-  /* Exibe o grupo de depoimentos atual no .depoimentos-box */
-  function mostrarDepoimentos() {
-    depoimentosBox.innerHTML = "";
-    gruposDeDepoimentos[indiceAtual].forEach(depoimento => {
-      const div = document.createElement("div");
-      div.classList.add("depoimento");
-      div.innerHTML = `<p>${depoimento.texto}</p><span>${depoimento.autor}</span>`;
-      depoimentosBox.appendChild(div);
-    });
-  }
+                    // Verifica se a resposta já está visível
+                    if (resposta.classList.contains("ativo")) {
+                        resposta.classList.remove("ativo");
+                        seta.style.transform = "rotate(0deg)";
+                    } else {
+                        // Fecha todas as outras respostas antes de abrir a nova
+                        document.querySelectorAll(".faq-answer").forEach(el => el.classList.remove("ativo"));
+                        document.querySelectorAll(".seta").forEach(el => el.style.transform = "rotate(0deg)");
+                        resposta.classList.add("ativo");
+                        seta.style.transform = "rotate(180deg)";
+                    }
+                });
+            });
+        } catch (error) {
+            console.error("Erro na funcionalidade do FAQ:", error);
+        }
+    }
 
-  /* Navega para o próximo grupo de depoimentos ao clicar na seta direita */
-  setaDireita.addEventListener("click", () => {
-    indiceAtual = (indiceAtual + 1) % gruposDeDepoimentos.length;
-    mostrarDepoimentos();
-  });
+    //  Funcionalidade de notificações expansíveis
+    const notificacoesTitulos = document.querySelectorAll(".notificacao-titulo");
+    if (notificacoesTitulos.length > 0) {
+        try {
+            notificacoesTitulos.forEach(titulo => {
+                titulo.addEventListener("click", () => {
+                    const conteudo = titulo.nextElementSibling;
+                    const seta = titulo.querySelector(".seta");
 
-  /* Navega para o grupo anterior de depoimentos ao clicar na seta esquerda */
-  setaEsquerda.addEventListener("click", () => {
-    indiceAtual = (indiceAtual - 1 + gruposDeDepoimentos.length) % gruposDeDepoimentos.length;
-    mostrarDepoimentos();
-  });
+                    if (!conteudo || !seta) {
+                        console.error("Conteúdo ou seta não encontrados para a notificação:", titulo);
+                        return;
+                    }
 
-  /* Inicializa a exibição dos depoimentos */
-  mostrarDepoimentos();
-});
-});
-    // 🎯 Validação de formulário
-    const form = document.querySelector("form");
+                    // Verifica se o conteúdo já está visível
+                    if (conteudo.classList.contains("ativo")) {
+                        conteudo.classList.remove("ativo");
+                        seta.style.transform = "rotate(0deg)";
+                    } else {
+                        // Fecha todas as outras notificações antes de abrir a nova
+                        document.querySelectorAll(".notificacao-conteudo").forEach(el => el.classList.remove("ativo"));
+                        document.querySelectorAll(".notificacao-titulo .seta").forEach(el => el.style.transform = "rotate(0deg)");
+                        conteudo.classList.add("ativo");
+                        seta.style.transform = "rotate(180deg)";
+                    }
+                });
+            });
+        } catch (error) {
+            console.error("Erro na funcionalidade de notificações:", error);
+        }
+    }
 
-    if (form) {
-        form.addEventListener("submit", (event) => {
+    //  Validação de formulário de contato
+    const formContato = document.querySelector("form");
+    if (formContato && document.getElementById("nome") && document.getElementById("email") && document.getElementById("mensagem")) {
+        formContato.addEventListener("submit", (event) => {
             event.preventDefault();
-
             const nome = document.getElementById("nome").value.trim();
             const email = document.getElementById("email").value.trim();
             const mensagem = document.getElementById("mensagem").value.trim();
@@ -82,55 +96,17 @@ document.addEventListener("DOMContentLoaded", () => {
                 alert("Por favor, preencha todos os campos.");
             } else {
                 alert("Mensagem enviada com sucesso!");
-                form.reset();
+                formContato.reset();
             }
         });
     }
-document.addEventListener("DOMContentLoaded", () => {
-    const perguntas = document.querySelectorAll(".faq-question");
 
-    perguntas.forEach(pergunta => {
-        pergunta.addEventListener("click", () => {
-            const resposta = pergunta.nextElementSibling;
-            const seta = pergunta.querySelector(".seta");
-
-            // Verifica se a resposta já está visível
-            if (resposta.classList.contains("ativo")) {
-                resposta.classList.remove("ativo");
-                seta.style.transform = "rotate(0deg)";
-            } else {
-                // Fecha todas as outras respostas antes de abrir a nova
-                document.querySelectorAll(".faq-answer").forEach(el => el.classList.remove("ativo"));
-                document.querySelectorAll(".seta").forEach(el => el.style.transform = "rotate(0deg)");
-
-                resposta.classList.add("ativo");
-                seta.style.transform = "rotate(180deg)";
-            }
-        });
-    });
-});
-
-
-
-document.addEventListener("DOMContentLoaded", () => {
-    const whatsappBtn = document.querySelector(".whatsapp-btn");
-
-    if (whatsappBtn) {
-        whatsappBtn.addEventListener("click", () => {
-            window.open("https://wa.me/551130535131", "_blank");
-        });
-    }
-});
-document.addEventListener("DOMContentLoaded", () => {
-    const form = document.querySelector("form");
-
-    if (form) {
-        form.addEventListener("submit", (event) => {
+    // Validação de formulário de cadastro com CPF e telefone
+    if (formContato && document.getElementById("cpf") && document.getElementById("telefone")) {
+        formContato.addEventListener("submit", (event) => {
             event.preventDefault();
-
             const cpf = document.getElementById("cpf").value.trim();
             const telefone = document.getElementById("telefone").value.trim();
-
             const cpfRegex = /^\d{3}\.\d{3}\.\d{3}-\d{2}$/;
             const telefoneRegex = /^\(\d{2}\) \d{5}-\d{4}$/;
 
@@ -138,68 +114,138 @@ document.addEventListener("DOMContentLoaded", () => {
                 alert("Por favor, insira um CPF válido (XXX.XXX.XXX-XX).");
                 return;
             }
-
             if (!telefoneRegex.test(telefone)) {
                 alert("Por favor, insira um telefone válido ((XX) XXXXX-XXXX).");
                 return;
             }
-
             alert("Cadastro enviado com sucesso!");
-            form.reset();
+            formContato.reset();
         });
     }
-});
-document.addEventListener("DOMContentLoaded", () => {
-    const parentescoSelect = document.getElementById("parentesco");
-    const outroContainer = document.getElementById("outro-parentesco-container");
 
-    parentescoSelect.addEventListener("change", () => {
-        if (parentescoSelect.value === "outro") {
-            outroContainer.style.display = "block";
-        } else {
-            outroContainer.style.display = "none";
-        }
-    });
-});
-document.addEventListener("DOMContentLoaded", () => {
-    // 🎯 Verificação de login do cuidador (apenas no painel)
+    //  Botão de WhatsApp
+    const whatsappBtn = document.querySelector(".whatsapp-btn");
+    if (whatsappBtn) {
+        whatsappBtn.addEventListener("click", () => {
+            window.open("https://wa.me/551130535131", "_blank");
+        });
+    }
+
+    //  Verificação de login do cuidador (apenas no painel)
     if (window.location.pathname.includes("cuidador-menu.html")) {
         const cuidadorLogado = localStorage.getItem("cuidadorAutenticado");
+        // Adicione aqui a lógica de verificação de login, se necessário
     }
-    // 🎯 Contato direto com o médico
-    const botoesContato = document.querySelectorAll(".contato-medico");
 
-    botoesContato.forEach(botao => {
-        botao.addEventListener("click", () => {
-            alert("Solicitação de contato enviada ao médico!");
+
+    //  Validação do formulário de cadastro
+    const formCadastro = document.getElementById("cadastroForm");
+    if (formCadastro) {
+        formCadastro.addEventListener("submit", (event) => {
+            event.preventDefault();
+
+            // Seleção dos campos
+            const nome = document.getElementById("nome").value.trim();
+            const cpf = document.getElementById("cpf").value.trim();
+            const cpfPaciente = document.getElementById("cpf-paciente").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const telefone = document.getElementById("telefone").value.trim();
+            const residencia = document.getElementById("residencia");
+            const foto = document.getElementById("foto");
+            const aceitarTermo = document.getElementById("aceitarTermo");
+
+            // Regex para validação
+            const cpfRegex = /^\d{3}\.\d{3}\.\d{3}-\d{2}$/;
+            const telefoneRegex = /^\(\d{2}\) \d{5}-\d{4}$/;
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            // Validações
+            if (!nome) {
+                alert("Por favor, preencha o Nome Completo.");
+                return;
+            }
+            if (!cpf) {
+                alert("Por favor, preencha o CPF do Cuidador.");
+                return;
+            }
+            if (!cpfRegex.test(cpf)) {
+                alert("Por favor, insira um CPF válido (XXX.XXX.XXX-XX).");
+                return;
+            }
+            if (!cpfPaciente) {
+                alert("Por favor, preencha o CPF do Paciente.");
+                return;
+            }
+            if (!cpfRegex.test(cpfPaciente)) {
+                alert("Por favor, insira um CPF do Paciente válido (XXX.XXX.XXX-XX).");
+                return;
+            }
+            if (!email) {
+                alert("Por favor, preencha o Email do Cuidador.");
+                return;
+            }
+            if (!emailRegex.test(email)) {
+                alert("Por favor, insira um email válido.");
+                return;
+            }
+            if (!telefone) {
+                alert("Por favor, preencha o Telefone para Contato.");
+                return;
+            }
+            if (!telefoneRegex.test(telefone)) {
+                alert("Por favor, insira um telefone válido ((XX) XXXXX-XXXX).");
+                return;
+            }
+            if (!residencia.files.length) {
+                alert("Por favor, selecione uma imagem para o Comprovante de Residência.");
+                return;
+            }
+            if (!foto.files.length) {
+                alert("Por favor, selecione uma imagem para a Foto 3x4.");
+                return;
+            }
+            if (!aceitarTermo.checked) {
+                alert("Você deve aceitar o Termo de Compromisso para concluir o cadastro.");
+                return;
+            }
+
+            // Sucesso
+            alert("Cadastro realizado com sucesso!");
         });
-    });
-});
-document.addEventListener("DOMContentLoaded", () => {
-    // 🎯 Contato direto com o médico
-    const botoesContato = document.querySelectorAll(".contato-medico");
+    }
 
-    botoesContato.forEach(botao => {
-        botao.addEventListener("click", () => {
-            alert("Solicitação de contato enviada ao médico!");
+    //  Modal do termo de compromisso
+    const openTermoModalBtn = document.getElementById("openTermoModal");
+    const termoModal = document.getElementById("termoModal");
+    const closeModalBtn = document.querySelector(".close-modal");
+    if (openTermoModalBtn && termoModal && closeModalBtn) {
+        console.log("Inicializando modal do termo de compromisso, elementos encontrados");
+        // Abrir modal
+        openTermoModalBtn.addEventListener("click", () => {
+            console.log("Botão #openTermoModal clicado");
+            termoModal.style.display = "flex";
         });
-    });
-});
-document.addEventListener("DOMContentLoaded", () => {
-    const mostrarTermoBtn = document.getElementById("mostrarTermo");
-    const termoContainer = document.getElementById("termoContainer");
-    const aceitarTermo = document.getElementById("aceitarTermo");
-    const form = document.getElementById("cadastroForm");
 
-    mostrarTermoBtn.addEventListener("click", () => {
-        if (termoContainer.style.display === "none") {
-            termoContainer.style.display = "block";
-            mostrarTermoBtn.textContent = "Fechar Termo";
-        } else {
-            termoContainer.style.display = "none";
-            mostrarTermoBtn.textContent = "Ler Termo Completo";
-        }
-    });
+        // Fechar modal
+        closeModalBtn.addEventListener("click", () => {
+            console.log("Botão .close-modal clicado");
+            termoModal.style.display = "none";
+        });
+
+        // Fechar modal ao clicar fora
+        termoModal.addEventListener("click", (event) => {
+            if (event.target === termoModal) {
+                console.log("Clicado fora do modal");
+                termoModal.style.display = "none";
+            }
+        });
+    } else {
+        console.error("Erro: #openTermoModal, #termoModal ou .close-modal não encontrados", {
+            openTermoModalBtn: !!openTermoModalBtn,
+            termoModal: !!termoModal,
+            closeModalBtn: !!closeModalBtn
+        });
+    }
 
     form.addEventListener("submit", (event) => {
         if (!aceitarTermo.checked) {
@@ -210,54 +256,3 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 })
-///modal alertas 
-/* Inicializa o script após o carregamento do DOM */
-document.addEventListener("DOMContentLoaded", () => {
-  /* Seleciona os elementos do modal e da lista de notificações */
-  const modalOverlay = document.getElementById("notificacoesModal");
-  const modalNotificacoesList = document.getElementById("modalNotificacoesList");
-  const openNotificacoesBtn = document.querySelector(".open-notificacoes-btn");
-  const notificacoesList = document.querySelector(".notificacoes-list");
-
-  /* Verifica se os elementos existem */
-  if (!modalOverlay || !modalNotificacoesList || !openNotificacoesBtn || !notificacoesList) {
-    console.error("Erro: Elementos do modal de notificações não encontrados.");
-    return;
-  }
-
-  /* Função para carregar notificações no modal */
-  function carregarNotificacoes() {
-    try {
-      modalNotificacoesList.innerHTML = ""; /* Limpa o conteúdo anterior */
-      const notificacoes = notificacoesList.querySelectorAll("li");
-      notificacoes.forEach(notificacao => {
-        const li = document.createElement("li");
-        li.innerHTML = notificacao.innerHTML; /* Copia o conteúdo HTML, incluindo <strong> */
-        modalNotificacoesList.appendChild(li);
-      });
-    } catch (error) {
-      console.error("Erro ao carregar notificações:", error);
-    }
-  }
-
-  /* Função para abrir o modal */
-  function openNotificacoesModal() {
-    carregarNotificacoes(); /* Carrega as notificações */
-    modalOverlay.style.display = "flex"; /* Exibe o modal */
-  }
-
-  /* Função para fechar o modal */
-  function closeNotificacoesModal() {
-    modalOverlay.style.display = "none"; /* Esconde o modal */
-  }
-
-  /* Evento para abrir o modal */
-  openNotificacoesBtn.addEventListener("click", openNotificacoesModal);
-
-  /* Evento para fechar o modal ao clicar fora do conteúdo */
-  modalOverlay.addEventListener("click", (event) => {
-    if (event.target === modalOverlay) {
-      closeNotificacoesModal();
-    }
-  });
-});
